@@ -1,5 +1,15 @@
+#!/usr/bin/python3
+"""
+This is an ALX of 0-pascal_triangle project
+"""
+
+
 def pascal_triangle(n):
-    # Create a list to hold the rows of the triangle 
+  """
+    Returns a list of integers
+    representing the Pascal Triangle of n
+    returns empty list if n <= 0
+    """
   triangle = [] 
    
   # Loop through each row 
