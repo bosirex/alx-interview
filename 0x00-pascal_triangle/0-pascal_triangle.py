@@ -1,30 +1,24 @@
 #!/usr/bin/python3
 """
-This is an ALX of 0-pascal_triangle project
+pascal_triangle project
 """
 
-import math
+
 def pascal_triangle(n):
     """
     Returns a list of integers
     representing the Pascal Triangle of n
     returns empty list if n <= 0
     """
-    triangle = [] 
-   
-    # Loop through each row 
-    for i in range(n): 
-    # Create a list to hold the values in the row 
-        row = [] 
-     
-    # Loop through each position in the row 
-    for j in range(i + 1): 
-      # Calculate the value using the binomial coefficient formula 
-      value = int(math.factorial(i) / (math.factorial(j) * math.factorial(i - j))) 
-       
-      # Append the value to the row 
-      row.append(value) 
-       
-    # Append the row to the triangle 
-    triangle.append(row) 
+    triangle = []
+    if n <= 0:
+        return triangle
+    triangle = [[1]]
+    for i in range(1, n):
+        temp = [1]
+        for j in range(len(triangle[i - 1]) - 1):
+            curr = triangle[i - 1]
+            temp.append(triangle[i - 1][j] + triangle[i - 1][j + 1])
+        temp.append(1)
+        triangle.append(temp)
     return triangle
